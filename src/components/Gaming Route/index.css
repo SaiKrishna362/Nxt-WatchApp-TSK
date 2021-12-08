@@ -1,0 +1,48 @@
+.bg-color {
+  background-color: #0f0f0f;
+}
+.li-bg-color {
+  background-color: #f9f9f9;
+}
+.gaming-ul-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.gaming-video-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0px;
+}
+.link-gaming-video-card {
+  width: 100%;
+}
+.gaming-channel-name {
+  font-size: 15px;
+  margin-top: 0px;
+  font-family: 'Roboto';
+}
+.gaming-title {
+  font-size: 15px;
+  font-family: 'Roboto';
+}
+.gaming-videos-thumbnail {
+  width: 65%;
+  border-radius: 15px;
+}
+@media screen and (max-width: 767px) {
+  .gaming-video-card {
+    width: 30%;
+  }
+  .gaming-videos-thumbnail {
+    width: 65%;
+  }
+}
