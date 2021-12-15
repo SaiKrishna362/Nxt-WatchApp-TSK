@@ -15,7 +15,7 @@ export const HeadDiv = styled.div`
   }
 `
 
-export const HeaderEl = styled.h1`
+export const HeaderEl = styled.div`
   background-color: ${props => props.bgColor};
   color: ${props => props.color};
   padding: 20px 0;
