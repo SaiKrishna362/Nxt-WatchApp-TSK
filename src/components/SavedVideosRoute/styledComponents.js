@@ -9,7 +9,9 @@ export const SavedVideosMainDiv = styled.div`
     height: fit-content;
   }
 `
-export const MainHeader = styled.h1`
+export const MainHeader = styled.div`
+  display: flex;
+  align-items: center;
   background-color: ${props => props.bgColor};
   padding: 20px;
   width: 100%;
