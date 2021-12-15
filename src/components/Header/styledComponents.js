@@ -81,10 +81,6 @@ export const ListContainer = styled.ul`
     display: none;
   }
 `
-export const ExtraDiv = styled.div`
-  display: ${props => props.display};
-  animation: ${FadeIn} 0.5s;
-`
 
 export const ListItem = styled.li`
   padding: 10px 0;
