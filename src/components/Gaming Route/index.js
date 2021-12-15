@@ -229,7 +229,6 @@ class Gaming extends Component {
                   </ContactUsContainer>
                 </DivContainer>
                 <div className="home-right-container">
-                  <h1>Gaming</h1>
                   <HeadDiv>
                     <HeaderEl
                       bgColor={activeTheme === 'light' ? '#f1f1f1' : '#181818'}
