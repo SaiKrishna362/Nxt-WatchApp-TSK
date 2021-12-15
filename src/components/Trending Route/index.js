@@ -80,21 +80,9 @@ class Trending extends Component {
 
   renderSuccessView = props => {
     const {dataArray} = this.state
-    const {activeTheme, color} = props
+    const {activeTheme} = props
     return (
       <div className="trending-right-container">
-        <HeadDiv>
-          <HeaderEl
-            bgColor={activeTheme === 'light' ? '#f1f1f1' : '#181818'}
-            color={color}
-          >
-            <AiFillFire
-              size={40}
-              className={`trend-icon ${activeTheme}-icon`}
-            />
-            <h1> Trending </h1>
-          </HeaderEl>
-        </HeadDiv>
         <ContentDiv>
           {dataArray.map(item => (
             <Link
@@ -104,18 +92,7 @@ class Trending extends Component {
             >
               <ListContainer>
                 <ListItem>
-                  <ImageTag
-                    src={`${item.thumbnail_url}`}
-                    width="350px"
-                    alt="video thumbnail"
-                  />
-                  <div className="logo-div">
-                    <img
-                      src={`${item.channel.profile_image_url}`}
-                      width="30px"
-                      alt="profile"
-                    />
-                  </div>
+                  <ImageTag src={item.thumbnail_url} alt="video thumbnail" />
                   <div>
                     <ParaTag>{item.title}</ParaTag>
                     <ParaTag>{item.channel.name}</ParaTag>
@@ -168,7 +145,7 @@ class Trending extends Component {
       case apiConstants.success:
         return this.renderSuccessView({activeTheme, color})
       case apiConstants.failure:
-        return this.renderFailure({activeTheme})
+        return this.renderFailure({activeTheme, color})
 
       default:
         return null
@@ -188,7 +165,7 @@ class Trending extends Component {
             <HomeContainer
               bgColor={`${bgColor}`}
               color={`${color}`}
-              data-testid="home"
+              data-testid="trending"
             >
               <div className="result-container">
                 <DivContainer>
@@ -252,7 +229,18 @@ class Trending extends Component {
                   </ContactUsContainer>
                 </DivContainer>
                 <div className="home-right-container">
-                  <h1>Trending</h1>
+                  <HeadDiv>
+                    <HeaderEl
+                      bgColor={activeTheme === 'light' ? '#f1f1f1' : '#181818'}
+                      color={color}
+                    >
+                      <AiFillFire
+                        size={40}
+                        className={`trend-icon ${activeTheme}-icon`}
+                      />
+                      Trending
+                    </HeaderEl>
+                  </HeadDiv>
                   {this.renderResult({activeTheme, color})}
                 </div>
               </div>
