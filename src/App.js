@@ -23,16 +23,24 @@ class App extends Component {
 
   addSavedVideos = async data => {
     const {savedVideos} = this.state
+
+    const {videoDetails} = data
     if (savedVideos.length > 0) {
-      const checkSavedVideos = savedVideos.filter(item => item.id === data.id)
+      const checkSavedVideos = savedVideos.filter(
+        item => item.id === videoDetails.id,
+      )
       if (checkSavedVideos.length === 0) {
         await this.setState({
-          savedVideos: [...savedVideos, data],
+          savedVideos: [...savedVideos, videoDetails],
+        })
+      } else {
+        await this.setState({
+          savedVideos: savedVideos.filter(item => item.id !== videoDetails.id),
         })
       }
     } else {
       await this.setState({
-        savedVideos: [...savedVideos, data],
+        savedVideos: [...savedVideos, videoDetails],
       })
     }
   }
