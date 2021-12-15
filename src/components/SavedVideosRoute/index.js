@@ -93,12 +93,6 @@ const SavedVideos = () => (
               </ContactUsContainer>
             </DivContainer>
             <div className="home-right-container">
-              <h1>Saved Videos</h1>
-              <MainHeader
-                bgColor={activeTheme === 'light' ? '#f1f1f1' : '#181818'}
-              >
-                <MdPlaylistAdd color="red" /> Saved Videos
-              </MainHeader>
               {savedVideos.length === 0 ? (
                 <UnSavedVideosDiv>
                   <NoVideosImageEl
@@ -112,6 +106,11 @@ const SavedVideos = () => (
                 </UnSavedVideosDiv>
               ) : (
                 <div className="saved-v-container">
+                  <MainHeader
+                    bgColor={activeTheme === 'light' ? '#f1f1f1' : '#181818'}
+                  >
+                    <MdPlaylistAdd color="red" /> Saved Videos
+                  </MainHeader>
                   <ul className="saved-videos-ul-container">
                     {savedVideos.map(data => (
                       <Link
