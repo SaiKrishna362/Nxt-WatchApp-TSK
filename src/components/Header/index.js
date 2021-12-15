@@ -27,20 +27,9 @@ import {
   ImageEl,
   ButtonElSmall,
   ButtonElLarge,
-  ExtraDiv,
 } from './styledComponents'
 
 class Header extends Component {
-  state = {displayHeader: 'none'}
-
-  showHeader = () => {
-    this.setState({displayHeader: 'block'})
-  }
-
-  hideHeader = () => {
-    this.setState({displayHeader: 'none'})
-  }
-
   logOut = () => {
     const {history} = this.props
     Cookies.remove('jwt_token')
@@ -53,7 +42,6 @@ class Header extends Component {
   }
 
   render() {
-    const {displayHeader} = this.state
     return (
       <AppTheme.Consumer>
         {value => {
@@ -176,38 +164,7 @@ class Header extends Component {
                   )}
                 </Popup>
               </HeaderContentsSmallContainer>
-              <ExtraDiv display={displayHeader}>
-                <ul>
-                  <Link to="/">
-                    <li className="left-list-container">
-                      <HiHome />
-                      <h1>Home</h1>
-                    </li>
-                  </Link>
 
-                  <Link to="/trending">
-                    <li
-                      className="left-list-container"
-                      onClick={this.onClickTrendingList}
-                    >
-                      <AiFillFire />
-                      <h1>Trending</h1>
-                    </li>
-                  </Link>
-                  <Link to="/gaming">
-                    <li className="left-list-container">
-                      <SiYoutubegaming />
-                      <h1>Gaming</h1>
-                    </li>
-                  </Link>
-                  <Link to="/saved-videos">
-                    <li className="left-list-container">
-                      <MdPlaylistAdd />
-                      <h1>Saved videos</h1>
-                    </li>
-                  </Link>
-                </ul>
-              </ExtraDiv>
               <HeaderContentsLargeContainer>
                 <ButtonElLarge
                   border="none"
