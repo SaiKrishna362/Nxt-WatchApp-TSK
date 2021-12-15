@@ -23,13 +23,14 @@ export const HeadDiv = styled.div`
   }
 `
 
-export const HeaderEl = styled.h1`
+export const HeaderEl = styled.div`
   background-color: ${props => props.bgColor};
   color: ${props => props.color};
   padding: 20px 0;
   padding-left: 40px;
   display: flex;
   align-items: center;
+  width: 100%;
 `
 
 export const ListContainer = styled.ul`
@@ -54,6 +55,7 @@ export const ListItem = styled.li`
 export const ImageTag = styled.img`
   width: ${props => props.width};
   object-fit: contain;
+  width: 350px;
   @media (max-width: 767px) {
     width: 100%;
   }
