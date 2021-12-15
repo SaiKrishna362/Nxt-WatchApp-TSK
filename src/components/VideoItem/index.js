@@ -123,13 +123,10 @@ class VideoCard extends Component {
     }
   }
 
-  isSaved = async () => {
-    const {saved} = this.state
-    if (saved) {
-      await this.setState({saved: false})
-    } else {
-      await this.setState({saved: true})
-    }
+  isSaved = () => {
+    this.setState(prevState => ({
+      saved: !prevState.saved,
+    }))
   }
 
   renderSuccessView = props => {
@@ -139,8 +136,13 @@ class VideoCard extends Component {
 
     const onSave = () => {
       this.isSaved()
-      addSavedVideos(videoDetails)
+      if (saved) {
+        addSavedVideos({videoDetails, saved})
+      } else {
+        addSavedVideos({videoDetails, saved})
+      }
     }
+
     return (
       <VideoContainer bgColor={bgColor} color={color}>
         <VideoFrameContainer>
@@ -246,7 +248,7 @@ class VideoCard extends Component {
             <HomeContainer
               bgColor={`${bgColor}`}
               color={`${color}`}
-              data-testid="home"
+              data-testid="videoItemDetails"
             >
               <div className="video-result-container">
                 <DivContainer bgColor={bgColor} color={color}>
